@@ -16,10 +16,6 @@
         {
             "type": "vcs",
             "url": "git@github.com:euw/facebook-app.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:euw/pdf-generator.git"
         }
     ],
 	"autoload": {

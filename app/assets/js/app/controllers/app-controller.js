@@ -2,8 +2,8 @@
 
 module.exports = function($scope, authService, invitationService) {
 
-    $scope.login = function () {
-        authService.login();
+    $scope.login = function (refreshPage) {
+        authService.login(refreshPage);
     };
 
     $scope.logout = function () {

@@ -37,7 +37,7 @@ module.exports = function ($rootScope) {
             });
         },
 
-        login: function() {
+        login: function(refreshPage) {
             var _self = this;
 
             FB.login(function (response) {
@@ -47,6 +47,10 @@ module.exports = function ($rootScope) {
                         console.log('Good to see you, ' + response.name + '.');
                     });
                     _self.getUserInfo();
+
+                    if (refreshPage) {
+                        window.location.reload();
+                    }
                 } else {
                     console.log('User cancelled login or did not fully authorize.');
                 }

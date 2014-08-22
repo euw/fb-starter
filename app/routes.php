@@ -1,22 +1,8 @@
 <?php
 
-Route::group(array('before' => 'selectTenant|facebook-app.auth'), function () {
-    /*View::composer('facebook-app::layouts.master', function ($view) {
-        $context = App::make('Euw\MultiTenancy\Contexts\Context');
+Route::group(array('before' => 'multi-tenancy.selectTenant|facebook-app.auth'), function () {
 
-        try {
-            $tenant = $context->getOrThrowException();
-            $view->with('pageId', $tenant->fb_page_id);
-        } catch (\Euw\MultiTenancy\Exceptions\TenantNotFoundException $e) {
-            dd($e->getMessage());
-        }
-
-    });*/
-
-    Route::any('/', function () {
-        return View::make('home.index');
-    });
-
+    Route::any('/', 'HomeController@index');
 
 //    Route::any('/', array('as' => 'home', 'uses' => 'Euw\MyApp\Controllers\HomeController@index'));
 //    Route::get('teilnahmebedingungen', array('as' => 'terms_of_use', 'uses' => 'TermsOfUseController@index'));

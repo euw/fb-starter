@@ -35,8 +35,8 @@ gulp.task('browserify', ['ng-autobootstrap'], function () {
             .bundle()
             .on('error', handleErrors)
             .pipe(source(outputDir + '/js/bundle.js'))
+            //.pipe(gulpif(env === 'production', streamify(uglify())))
             .pipe(gulp.dest('./'))
-            .pipe(gulpif(env === 'production', streamify(uglify())))
             .on('end', bundleLogger.end)
             .pipe(notify('JS compiled and minified.'));
     };

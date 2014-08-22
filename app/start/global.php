@@ -51,6 +51,14 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 });
 
+App::error(function (Euw\FacebookApp\Exceptions\UserHasDeniedAuthenticationException $exception, $code) {
+    return View::make('errors/authDenied');
+});
+
+App::error(function (Euw\MultiTenancy\Exceptions\TenantNotFoundException $exception, $code) {
+    return View::make('errors.tenantNotFound');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler
