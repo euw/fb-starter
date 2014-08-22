@@ -1,0 +1,50 @@
+._module-kampagnenmodule-list{
+	@extend %reset;
+	list-style-type: none;
+	border: none !important;
+
+	li{background-color: #fff !important; padding: 1em !important;}
+
+	.button{
+		@extend %button;
+	}
+
+	._module-kampagnenmodule-list-entry{
+		border:1px solid #ddd;
+		padding: 1em;
+		margin-bottom: 1em;
+		
+		@include breakpoint($breakpoint-small-medium) {
+			float: left;
+			width: calc(100% / 2 - 10px);
+			margin-right: 10px;
+		}
+
+		@include breakpoint($breakpoint-medium) {	
+			width: calc(100% / 3 - 10px);
+		}
+
+
+		a{ text-decoration: none; }
+		
+		._module-how-modules-list-entry{
+			@extend %clear;
+			
+			._module-how-modules-list-entry-headline{
+				font-size: 1.25em;
+				color: $primary-color;
+				text-align: center;
+				@extend %reset;
+			}
+
+			._module-how-modules-list-entry-image{
+				width: 8em;
+				display: block;
+				margin:0 auto;
+			}
+
+
+		}
+
+	}
+}

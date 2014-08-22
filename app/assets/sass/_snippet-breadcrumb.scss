@@ -1,0 +1,7 @@
+#breadcrumb{
+	color: #777;
+	
+	@include breakpoint($breakpoint-medium) {font-size: 75%;}
+
+	a{color: $primary-color;}
+}

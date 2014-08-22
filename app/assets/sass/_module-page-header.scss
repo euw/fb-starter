@@ -1,0 +1,22 @@
+._module-page-header{
+	background-color: $primary-color;
+	padding: 6em 0;
+	
+	h1, h2{
+		color: #fff;
+		text-align: left;
+		@extend %container;
+		padding: 0 1.5rem;
+
+
+	}
+
+	h1{ font-weight: 700; letter-spacing: 0.025em; }
+	h2{
+		font-family: $secondary-font; 
+		font-weight: normal; 
+		font-size: 1.35em; 
+		letter-spacing: 0.025em; 
+		margin-top: 0.5em;
+	}
+}

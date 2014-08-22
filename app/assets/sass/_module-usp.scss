@@ -1,0 +1,53 @@
+	._module-usp{
+		
+		._module-usp-list{
+			@extend %clear;
+
+			._module-usp-entry{
+				@extend %hover;
+				padding: 0.5em;
+				margin-bottom: 10px;
+				font-size: 100%;
+								
+				@include breakpoint($breakpoint-medium) {
+					float: left;
+					width: 33.33333333%;
+					min-height: 410px;
+					padding: 1em;
+					margin-bottom: 0;
+					font-size: 85%;
+
+					&:nth-child(2){ width: calc( 33.33333333% - 20px); margin: 0 10px 0 10px;}
+				}
+
+				@include breakpoint($breakpoint-wide) {
+					font-size: 100%;
+					min-height: 386px;
+				}
+
+				._module-usp-entry-headline{
+					font-weight: 700;
+					text-align: center;
+				}
+
+				._module-usp-entry-image{
+					display: block;
+					max-width: 100%;
+					@extend %center;
+					
+					@include breakpoint($breakpoint-small) { max-width: 40%; }
+					@include breakpoint($breakpoint-small-medium) { max-width: 50%; }
+					@include breakpoint($breakpoint-medium) { max-width: 140px; }
+					@include breakpoint($breakpoint-wide) { max-width: 160px; }
+				}
+
+				._module-ups-entry-copy{
+					text-align: center;
+					color: #777;
+				}
+
+			}
+
+		}
+	
+	}

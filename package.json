@@ -1,0 +1,46 @@
+{
+  "name": "FacebookAppStarter",
+  "version": "0.1.0",
+  "description": "Facebook App starter with common tasks and scenarios",
+  "repository": {},
+  "main": "./public/js/main.js",
+  "browser": {
+    "underscore": "backbone/node_modules/underscore"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {},
+  "devDependencies": {
+    "browser-sync": "~0.8.2",
+    "browserify": "~3.36.0",
+    "browserify-shim": "~3.4.1",
+    "gulp": "^3.8.6",
+    "gulp-autoprefixer": "0.0.7",
+    "gulp-changed": "^0.4.1",
+    "gulp-codeception": "^0.4.3",
+    "gulp-compass": "^1.2.0",
+    "gulp-if": "^1.2.4",
+    "gulp-imagemin": "^0.6.2",
+    "gulp-minify-css": "^0.3.7",
+    "gulp-ng-autobootstrap": "0.0.2",
+    "gulp-notify": "^1.2.5",
+    "gulp-phpunit": "^0.5.3",
+    "gulp-rename": "^1.2.0",
+    "gulp-streamify": "0.0.5",
+    "gulp-uglify": "^0.3.0",
+    "gulp-util": "^2.2.14",
+    "pretty-hrtime": "^0.2.1",
+    "vinyl-source-stream": "^0.1.1",
+      "watchify": "^1.0.1"
+  },
+  "dependencies": {
+    "angular": "^1.2.19",
+    "bootstrap-sass": "^3.2.0",
+    "connect": "^2.25.7",
+    "font-awesome": "^4.1.0",
+    "jquery": "^2.1.1"
+  }
+}

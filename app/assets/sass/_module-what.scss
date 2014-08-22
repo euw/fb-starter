@@ -1,0 +1,104 @@
+._module-what{
+
+		._module-what-explanation{ 
+			@extend %clear;
+
+			._module-what-explanation-entry-video{
+						
+						position: relative;		
+						width: 100%;
+						height: 0;
+						padding-bottom: 56.16667%;
+
+						background-color: red;
+						
+						iframe{
+							position: absolute;
+							width: 100%;
+							height: 100%;
+							z-index: 9700; 
+						}
+
+						@include breakpoint($breakpoint-medium) {
+							max-width: 85%;
+							margin: 0 auto;
+						}
+
+						@include breakpoint($breakpoint-huge) {
+							max-width: 100%;
+							margin: 0;
+						}
+
+					}
+			
+
+			._module-what-explanation-entry{
+				width: 100%;
+				
+				@include breakpoint($breakpoint-huge) {
+					width: 50%;
+					float: left;
+				}
+
+			}
+
+			.explanation--left{
+				@extend %clear;
+				@include breakpoint($breakpoint-huge) { display: table; min-height: 337px; }
+
+				._module-what-explanation-entry-step{
+					@extend %hover;
+					padding: 2em;
+					text-align: center;
+					margin-bottom: 10px;
+
+					._module-what-explanation-entry-step-number{
+						font-size: 2.25em; 
+						font-family: $primary-font; 
+						color: lighten($primary-color, 10%);
+						margin-bottom: 0.75em;
+					}
+
+					._module-what-explanation-entry-desc{
+						color: #555;
+						strong{
+							display: block;
+							@include breakpoint($breakpoint-huge) { display: inline; }
+						}
+					}
+
+					@include breakpoint($breakpoint-medium) {
+						width: 33.33333%;
+						display: block;
+						float: left;
+						min-height: 165px;
+						padding: 1.75em 1em 1.5em 1em;
+		
+						._module-what-explanation-entry-step-number{ margin-bottom: 0.5em; }
+
+					}
+
+					@include breakpoint($breakpoint-huge) { 
+						display: table-row;
+						float: none;
+						padding: 0;
+						margin-bottom: 0;
+
+						.step-1{vertical-align: top;}
+						.step-2{vertical-align: middle;}
+						.step-3{vertical-align: bottom;}
+
+						._module-what-explanation-entry-step-number,
+						._module-what-explanation-entry-desc{ display: table-cell; vertical-align: middle; padding-left: 1em; text-align: left;}
+					}
+
+				}
+
+			}
+
+			.explanation--right{
+				
+				
+			}
+		}
+	}

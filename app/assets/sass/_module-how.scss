@@ -1,0 +1,144 @@
+._module-how{
+		
+		text-align: center;
+
+		.button{
+			margin-bottom: 1.5em;
+		}
+
+		._module-how-features{
+			
+			._module-how-features-entry{
+				
+				@extend %clear;
+				margin-bottom: 2em;
+				width: 100%;
+
+				._module-how-features-entry-screenshot{
+
+					width: 100%;
+					max-width: 100%;
+					display: block;
+					margin: 0 auto;
+
+					@include breakpoint($breakpoint-medium) {
+						max-width: 75%;
+						margin: 0 auto 10px auto;
+					}
+
+					@include breakpoint($breakpoint-wide) {
+						float: left;
+						max-width: 210px;
+					}
+				}
+
+				._module-how-features-entry-desc{
+					
+					@extend %clear;
+					@extend %hover;
+					width: 100%;
+					padding: 1.5em 0;
+
+					@include breakpoint($breakpoint-small-medium) {
+						display: table;
+						font-size: 85%;
+					}
+
+					@include breakpoint($breakpoint-medium) {
+						font-size: 100%;
+					}
+					
+					@include breakpoint($breakpoint-wide) {
+						float: left;
+						width: 100%;
+						margin-left: 2.5%;
+					}
+
+
+					._module-how-features-entry-desc-illu{
+							max-width: 100%;
+
+						@include breakpoint($breakpoint-small-medium) {
+							max-width: 210px;
+							max-height: 210px;
+							width: 210px; height: 210px;
+							float: left;
+							display: block;
+						}
+
+					}
+
+					._module-how-features-entry-desc-container{
+						display: table-cell;
+						vertical-align: middle;
+						padding: 2em 1.5em;
+						
+						@include breakpoint($breakpoint-small-medium) {
+							padding: 0 1.5em;
+						}
+
+						._module-how-features-entry-desc-headline,
+						._module-how-features-entry-desc-copy{ text-align: left; margin: 0; padding: 0; }
+
+						._module-how-features-entry-desc-headline{
+							strong{display: block;}
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+		._module-how-modules{
+
+			.button{
+			margin-top: 1.5em;
+			}
+
+			._module-how-modules-list{
+				@extend %clear;
+			}
+			
+			a{
+				._module-how-modules-list-entry{
+					
+					padding: 1em;
+					position: relative;
+					@extend %hover;
+					
+					margin-bottom: 10px;				
+
+					// &:last-child{margin-right: 0;}
+
+					@include breakpoint($breakpoint-small-medium) { 
+						margin-right: 10px;
+						float: left; width: calc(50% - 10px); 
+					}
+
+					@include breakpoint($breakpoint-medium) { width: calc(33.3333% - 10px); }
+
+					@include breakpoint($breakpoint-wide) { width: calc(16.666667% - 10px); }
+
+					._module-how-modules-list-entry-headline{
+						text-align: center;
+						font-weight: 700;
+						margin: 0 0 0.5em 0;
+						color: #333;
+					}
+
+					._module-how-modules-list-entry-image{
+						display: block;
+						margin: 0 auto;
+						max-width: 100%;
+						@include breakpoint($breakpoint-small) { max-width: 40%; }
+					}
+
+				}
+			}
+
+		}
+
+	}

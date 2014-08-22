@@ -1,0 +1,41 @@
+._global-footer{
+	background-color: #333;
+	padding: 1.5em 0;
+
+	._global-footer-container{
+		@extend %container;
+		@extend %padding;
+	}
+
+	._global-footer-menu{
+		float: left;
+		@extend %clear;
+
+		ul{
+			@extend %clear;
+			@extend %reset;
+
+			li{
+				display: block;
+				float: left;
+				
+				a{
+					color: #fff; 
+					text-decoration: none; 
+					padding: 0 1.5em; 
+					display: block; 
+					width: 100%; height: 100%; 
+					line-height: 2;
+					@include single-transition(color, 175ms, ease-in-out);
+					&:hover{color: #777;}
+				}
+			}
+		}
+	}
+
+	._global-footer-cta{
+		@extend %button;
+		float: right;
+	}
+
+}

@@ -1,0 +1,103 @@
+$prefixes: ("-webkit-","-moz-", "-o-", "-ms-", "");
+@mixin prefix($property, $value) { 
+    @each $prefix in $prefixes {
+        #{$prefix}#{$property}: #{$value};
+    }
+}
+
+%clear{
+    &:before, &:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        overflow: hidden;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin linkTextOffscreen() {
+    text-indent: -9999px;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    font-size: 0;
+    text-align: start;
+}
+
+@mixin hoverActiveFocus($property, $value) {
+    &:hover, &:active, &:focus {
+        #{$property}: $value;
+    }
+}
+
+//rem-fallback
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@mixin rem-fallback($property, $values...) {
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $pxValues: #{$pxValues + $value*16}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  }
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $remValues: #{$remValues + $value}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  }
+  
+  #{$property}: $pxValues;
+  #{$property}: $remValues;
+}
+
+%reset{
+  margin: 0; padding: 0;
+}
+
+//horizontal centering
+%center{
+  display: block;
+  margin: 0 auto;
+}
+
+%padding{
+  padding: 0 1.5em;
+}
+
+//container
+%container{
+  @extend %center;
+  @extend %clear;
+  width: 100%;
+  max-width: 1200px;
+}
+
+//button
+.button{
+  border:1px solid $primary-color;
+  padding:0.75em 1.5em;
+  text-decoration: none;
+  text-align: center;
+  color:$primary-color;
+  display: inline-block;
+//  @include transition(all, 175ms, ease-in-out);
+  
+  &:hover{
+    background-color: $primary-color;
+    color:#fff;
+  }
+}

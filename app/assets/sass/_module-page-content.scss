@@ -1,0 +1,27 @@
+._module-page-content{
+		background-color: #fff;
+		padding-bottom: 3em;	
+
+	._module-page-content-entry{
+		@extend %container;
+		padding: 1.5em 1.5em 1em 1.5em;
+
+		img{max-width: 100%;}
+		
+		color: #333;
+		font-size: 100%;
+		@include breakpoint($breakpoint-wide) { font-size: 125%; line-height: 1.6; }
+		@include breakpoint($breakpoint-huge) { font-size: 135%; line-height: 1.6; }
+
+		/*ul{
+			list-style: none;
+			border: 1px solid #ddd;
+			padding: 1em;
+			li{padding:1em 0.25em;}
+			li:nth-child(even){background-color: #eee;}
+		}*/
+
+	}
+	
+
+}

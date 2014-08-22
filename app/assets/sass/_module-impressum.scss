@@ -1,0 +1,31 @@
+.impressum-namen{
+	@extend %clear;
+
+	h3{ font-weight:700; }
+
+	.impressum-left, .impressum-right{
+		float: left;
+		width: 50%;
+		padding: 1em;
+	}
+}
+
+.impressum-visdp{ @extend %clear; float: none; width: 100%; padding: 1em; h3{ font-weight:700; }}
+
+.impressum-disclaimer{
+	@extend %clear;
+	padding: 1em;
+	h3{ font-weight:700; }
+
+	p{
+		color: #777;
+		text-align: justify;
+	}
+}
+
+.datenschutz{
+	p{
+		color: #777;
+		text-align: justify;
+	}
+}

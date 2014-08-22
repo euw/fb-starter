@@ -1,0 +1,60 @@
+	._module-hero{
+
+		position: relative;
+		background-color: $primary-color;
+		overflow: hidden;
+		margin: 0; padding: 0 !important;
+		font-size: 85%;
+		
+		@include breakpoint($breakpoint-small-medium) {
+			background-image: url(../img/aufmacher-easy-campaign.jpg);
+			background-size: cover;
+		}
+
+		@include breakpoint($breakpoint-medium) {
+			font-size: 100%;
+			padding: 0;
+			margin: 0 auto;
+		}
+
+		@include breakpoint($breakpoint-wide) {
+//			margin: $global-header-height auto 0 auto;
+		}
+
+		._module-hero-text{
+			color: #fff;
+			z-index: 7500;
+			padding: 3em 1em;
+
+			@include breakpoint($breakpoint-small-medium) {
+				width: 75%;
+				margin-left: 25%;
+				padding: 6em 2em;
+				background-color: rgba(0, 0, 0, 0.55);
+			
+			}
+
+			@include breakpoint($breakpoint-wide) {
+				width: 50%;
+				margin-left: 50%;
+				padding: 8em 2em;
+				
+			}
+
+			h1, h2{
+				font-weight: 400;
+				text-align: left;
+			}
+
+			h1{	
+				font-size: 2.5em;
+				strong{display: block;}
+
+			}
+
+			h2{ font-family: $secondary-font; font-size: 1.25em; line-height: 1.35; }
+
+		}
+
+
+	}

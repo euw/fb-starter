@@ -1,0 +1,28 @@
+html, body{
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+body{
+//	background-color: #ddd;
+}
+
+//wp-admin-bar
+
+.admin-bar{
+
+	._global-header{
+		top:46px;
+		@include breakpoint(783px) { top:32px; }
+	}
+}
+
+@include breakpoint($breakpoint-medium) {
+	.alignleft,
+	.alignright{
+		margin-bottom: 1em;
+	}
+
+	.alignleft{ float: left; margin-right: 1em; }
+	.alignright{ float: right; margin-left: 1em; }
+}

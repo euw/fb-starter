@@ -1,0 +1,174 @@
+$global-header-height:64px;
+
+._global-header{
+	width: 100%;
+	background-color: #fff;
+	@include box-shadow(0px 0px 2px 0px #999);
+	z-index: 9800;
+
+	@include breakpoint($breakpoint-wide) {
+		
+		height: $global-header-height;
+		padding: 20px 0;
+		position: fixed;
+		top: 0; left: 0;
+		background-color: rgba(255, 255, 255, 0.9);
+	}
+
+	._global-header-container{
+
+		padding: 0;
+		@extend %container;
+		@extend %padding;
+
+		@include breakpoint($breakpoint-medium) {
+			padding: 0 1.5em;
+		}
+	}
+	
+	._global-header-logo{
+		
+		min-width: 176px;
+		width: 100%;
+		padding: 2em 0;
+		border-bottom: 1px solid #ddd;
+
+		@include breakpoint($breakpoint-medium) {
+			
+			width: 100%;
+			border-bottom: none;
+			padding: 0.75em 0 0 0; 
+ 		}
+		
+		@include breakpoint($breakpoint-wide) {
+			float: left;
+			width: 25%;
+			padding: 0;
+		}
+
+		img{
+			display: block;
+			margin: 0 auto;
+			
+			@include breakpoint($breakpoint-medium) { 
+				margin: 0;
+			}
+		}
+	}
+
+	._global-header-menu{
+
+		@include breakpoint($breakpoint-medium) {
+			float: left;
+			width: 100%;
+		}
+		
+		@include breakpoint($breakpoint-wide) {
+			float: right;
+			width: 75%;
+		}
+
+		._global-header-menu-button{
+			display: block;
+			text-align: center;
+			padding: 0.5em 0;
+			cursor: pointer;
+			font-weight: 700;
+			
+			@include breakpoint($breakpoint-medium) {
+					display: none;
+				}
+
+			&:before{
+				display: inline-block;
+
+			}
+		}
+
+		.active{display: block;}
+
+		ul{
+			display: none;
+			margin: 0; padding: 0.5em 0;
+			background-color: #eee;
+			width: 100%;
+
+			@include breakpoint($breakpoint-medium) {
+				display: block;
+				padding: 1em 0;
+				background-color: transparent;	
+			}
+
+			@include breakpoint($breakpoint-wide) {
+				padding: 0;
+			}
+
+			@extend %clear;
+			
+			li{
+				text-align: center;
+				display: block;
+				padding: 0.25em 1.5em;
+				
+				@include breakpoint($breakpoint-medium) {
+					float: left;
+					width: 25%;
+					text-align: center;
+					font-size: 85%;
+					padding:0 0.5em;
+					text-align: left;
+
+				}
+
+				@include breakpoint($breakpoint-wide) {
+					width: auto;
+					padding: 0 1.5em;
+					font-size: 100%;
+				}
+
+			}
+
+			.current-menu-item{
+				background-color: $primary-color;
+				&:hover{ background-color: lighten($primary-color, 20%); }
+
+				a{
+					color: #fff; 
+					&:hover{ color: #fff; }
+				}
+			}
+			
+			a{
+				display: block;
+				width: 100%;
+				height: 100%;
+				text-decoration: none;
+				text-align: center;
+				color: #666;
+				line-height: 2;
+				@include single-transition(color, 175ms, ease-in-out);
+				&:hover{color: $primary-color;}
+
+				@include breakpoint($breakpoint-medium) {
+					color: #999;
+					line-height: 1.5;
+				}
+			}
+
+			}
+
+	}
+
+	._global-header-cta{
+			display: none;
+			@extend %button;
+
+		@include breakpoint($breakpoint-medium) {
+			display: block;
+			float: right;
+			margin-top: -8px;
+		}
+	}
+
+
+}

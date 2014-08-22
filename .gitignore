@@ -1,0 +1,35 @@
+/bootstrap/compiled.php
+/vendor
+composer.phar
+composer.lock
+.env.*.php
+.env.php
+.DS_Store
+Thumbs.db
+
+# PHPStorm
+.idea
+
+# Vagrant
+.vagrant
+html
+
+# node modules
+node_modules
+
+# bower
+public/bower_components
+bower_components
+
+# sass
+.sass-cache
+
+# public uploaded files
+public/files
+
+# compiled built files
+#public/css
+#public/js
+
+#codekit
+config.codekit
