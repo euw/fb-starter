@@ -1,11 +1,6 @@
 @extends('facebook-app::layouts.master')
 
-@section('header')
-<div class="container">
-<h1>Header</h1>
-<h2>{{ $pageId }}</h2>
-</div>
-@stop
+@include('_globals._global-header')
 
 @section('content')
     <div ng-show="user.id">
@@ -24,16 +19,14 @@
 
         <hr/>
 
-        <p><button ng-click="invite()" class="btn btn-primary">Invite Friends</button></p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="" ng-click="invite()">Animi</a> aperiam assumenda aut dolor dolores ducimus, eos facilis id in iste necessitatibus neque nesciunt non odit pariatur quia quibusdam ratione, voluptatum.</p>
+
+        <p><fb-invite label="Freunde einladen"></fb-invite></p>
     </div>
 
     <div ng-show="!user.id">
-        <p><button ng-disabled="!initialized" ng-click="login()" class="btn btn-primary">Login</button></p>
+        <p><fb-login label="Anmelden"></fb-login></p>
     </div>
 @stop
 
-@section('footer')
-<div class="container">
-<h6>Footer</h6>
-</div>
-@stop
+@include('_globals._global-footer')

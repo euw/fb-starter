@@ -3,6 +3,5 @@
 @section('content')
 <h1>Please :(</h1>
 
-<p><button ng-disabled="!initialized" ng-click="login(true)" class="btn
-btn-primary">Login</button></p>
+<p><fb-login redirect="true"></fb-login></p>
 @stop

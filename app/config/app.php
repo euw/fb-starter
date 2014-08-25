@@ -125,6 +125,7 @@ return array(
 
         'Euw\MultiTenancy\MultiTenancyServiceProvider',
         'Euw\FacebookApp\FacebookAppServiceProvider',
+        'Laracasts\Utilities\UtilitiesServiceProvider',
 
 	),
 

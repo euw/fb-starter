@@ -34,13 +34,14 @@
     "gulp-util": "^2.2.14",
     "pretty-hrtime": "^0.2.1",
     "vinyl-source-stream": "^0.1.1",
-      "watchify": "^1.0.1"
+    "watchify": "^1.0.1"
   },
   "dependencies": {
     "angular": "^1.2.19",
     "bootstrap-sass": "^3.2.0",
     "connect": "^2.25.7",
     "font-awesome": "^4.1.0",
-    "jquery": "^2.1.1"
+    "jquery": "^2.1.1",
+    "mobile-detect": "^0.4.0"
   }
 }

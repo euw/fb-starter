@@ -68,7 +68,7 @@ module.exports = function ($rootScope) {
         },
 
         setPermissions: function(permissions) {
-            this.permissions = permissions;
+            this.permissions = permissions.split(",");
         },
 
         checkPermissions: function() {

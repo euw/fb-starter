@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.2.*",
         "euw/multi-tenancy": "dev-master",
-        "euw/facebook-app": "dev-master"
+        "euw/facebook-app": "dev-master",
+        "laracasts/utilities": "1.0.1"
 	},
     "repositories": [
         {
