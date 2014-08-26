@@ -9,6 +9,7 @@ var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
 var streamify = require('gulp-streamify');
 var gulpif = require('gulp-if');
+var ngmin = require('gulp-ngmin');
 var notify       = require('gulp-notify');
 
 var env = process.env.NODE_ENV || 'development';
@@ -35,10 +36,11 @@ gulp.task('browserify', ['ng-autobootstrap'], function () {
             .bundle()
             .on('error', handleErrors)
             .pipe(source(outputDir + '/js/bundle.js'))
+            .pipe(gulpif(env === 'production', streamify(ngmin())))
+            .pipe(gulpif(env === 'production', streamify(uglify({mangle: false}))))
             .pipe(gulp.dest('./'))
-            .pipe(gulpif(env === 'production', streamify(uglify())))
             .on('end', bundleLogger.end)
-            .pipe(notify('JS compiled and minified.'));
+            .pipe(notify('JS bundled.'));
     };
 
     if (global.isWatching) {

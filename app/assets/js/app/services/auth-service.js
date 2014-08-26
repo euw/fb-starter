@@ -1,8 +1,6 @@
 'use strict';
 
-var $ = require('jquery');
-
-module.exports = function ($rootScope) {
+module.exports = function ($rootScope, $window, userService) {
     return {
         permissions: [],
 
@@ -28,6 +26,8 @@ module.exports = function ($rootScope) {
                 $rootScope.$apply(function () {
                     $rootScope.user = _self.user = response;
                 });
+
+                userService.saveToDatabase();
             });
 
             FB.api('/me/likes', function (response) {
@@ -49,7 +49,7 @@ module.exports = function ($rootScope) {
                     _self.getUserInfo();
 
                     if (refreshPage) {
-                        window.location.reload();
+                        $window.location.reload();
                     }
                 } else {
                     console.log('User cancelled login or did not fully authorize.');
@@ -71,26 +71,6 @@ module.exports = function ($rootScope) {
             this.permissions = permissions.split(",");
         },
 
-        checkPermissions: function() {
-            var _self = this;
-
-            FB.api("/me/permissions", function (response) {
-                var permissionsGranted = [];
-
-                angular.forEach(response.data, function (value) {
-                    if (value.status == 'granted') {
-                        permissionsGranted.push(value.permission);
-                    }
-                });
-
-                var permissionsToPromptFor = $(_self.permissions).not(permissionsGranted).get();
-
-                if (permissionsToPromptFor.length > 0) {
-                    _self.promptForPermissions(permissionsToPromptFor);
-                }
-            });
-        },
-
         promptForPermissions: function(permissions) {
             var _self = this;
 
@@ -106,5 +86,6 @@ module.exports = function ($rootScope) {
                 _self.getUserInfo();
             }, {scope: permission});
         }
+
     };
 };

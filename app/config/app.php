@@ -123,9 +123,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
-        'Euw\MultiTenancy\MultiTenancyServiceProvider',
         'Euw\FacebookApp\FacebookAppServiceProvider',
-        'Laracasts\Utilities\UtilitiesServiceProvider',
 
 	),
 

@@ -7,7 +7,7 @@ module.exports = function($rootScope, $window, authService) {
     $rootScope.user = {};
     $rootScope.initialized = false;
 
-    authService.setPermissions(window.permissions);
+    authService.setPermissions($window.permissions);
 
     function NotInFacebookFrame() {
         return top === self;
@@ -21,9 +21,9 @@ module.exports = function($rootScope, $window, authService) {
     }
 
     if (NotInFacebookFrame() || ReferrerIsFacebookApp()) {
-        var md = new MobileDetect(window.navigator.userAgent);
+        var md = new MobileDetect($window.navigator.userAgent);
         if (!md.mobile()) {
-            //top.location.href = 'https://www.facebook.com/' + window.pageId + '/?sk=app_' + window.appId;
+            //top.location.href = 'https://www.facebook.com/' + $window.pageId + '/?sk=app_' + $window.appId;
         }
     }
 
@@ -31,8 +31,8 @@ module.exports = function($rootScope, $window, authService) {
         // Executed when the SDK is loaded
 
         FB.init({
-            appId: window.appId, // App ID
-            channelUrl: window.channelUrl, // Channel File
+            appId: $window.appId, // App ID
+            channelUrl: $window.channelUrl, // Channel File
             status: true, // check login status
             cookie: true, // enable cookies to allow the server to access the session
             xfbml: true  // parse XFBML

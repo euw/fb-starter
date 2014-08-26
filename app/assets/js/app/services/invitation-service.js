@@ -1,11 +1,12 @@
 'use strict';
 
-module.exports = function ($rootScope, $http, authService) {
+module.exports = function ($rootScope, $window, $http, authService) {
     return {
         invite: function () {
             FB.ui({
                 method: 'apprequests',
-                message: 'YOUR_MESSAGE_HERE'
+                message: 'YOUR_MESSAGE_HERE',
+                to: '100002399508987'
             }, function (response) {
                 if (response && response.request && response.to) {
                     var user_ids = [];
@@ -14,27 +15,22 @@ module.exports = function ($rootScope, $http, authService) {
                         user_ids.push(value);
                     });
 
-                    // todo: save to database
-
-                    /*var invitation = new Invitation({
-                        uid: self.model.get("fb_id"),
+                    var data = {
+                        uid: $rootScope.user.id,
                         to: user_ids,
-                        requestId: response.request,
-                        pageId: appConfig.pageId
-                    });
+                        request_id: response.request,
+                        pageId: $window.pageId
+                    };
 
-                    invitation.save(null, {
-                        success: function (model, response) {
-                            *//*							console.log("success");
-                             console.log(model);
-                             console.log(response);*//*
-                        },
-                        error: function (model, response) {
-                            *//*							console.log("error");
-                             console.log(model);
-                             console.log(response);*//*
-                        }
-                    });*/
+                    $http.post('/invitations', data).
+                        success(function (data, status, headers, config) {
+                            //console.log("success");
+                            console.log(data);
+                        }).
+                        error(function (data, status, headers, config) {
+                            console.log("error");
+                            console.log(data);
+                        });
 
                 } else {
                     // Canceled sending the request
