@@ -4,5 +4,5 @@ var $ = require('jquery');
 require('bootstrap');
 
 module.exports = function () {
-     $('.flash-modal').modal();
+    $('.flash-modal').modal();
 };

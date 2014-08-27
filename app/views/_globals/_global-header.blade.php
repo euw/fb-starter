@@ -1,6 +1,5 @@
 @section('header')
-<div class="container">
-<h1>Header</h1>
-<h2>{{ $pageId }}</h2>
-</div>
+
+@include('_globals._global-header-navigation')
+
 @stop

@@ -8,20 +8,17 @@ class UsersController extends BaseController {
 
     function __construct(UserRepository $user)
     {
-        parent::__construct();
         $this->user = $user;
     }
 
     public function store()
     {
-        $uid = $this->facebook->getUser();
+        $uid = Input::get('id');
 
         $user = $this->user->getFirstBy('fb_id', $uid);
 
         if (!$user) {
-            $userInfo = $this->facebook->api('/' . $uid);
-
-            $user = $this->user->create(array_merge($userInfo, [
+            $user = $this->user->create(array_merge(Input::all(), [
                 'fb_id' => $uid
             ]));
         }

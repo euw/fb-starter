@@ -5,6 +5,7 @@
   "repository": {},
   "main": "./public/js/main.js",
   "browser": {
+    "bootstrap": "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js",
     "underscore": "backbone/node_modules/underscore"
   },
   "browserify": {
@@ -12,7 +13,14 @@
       "browserify-shim"
     ]
   },
-  "browserify-shim": {},
+  "browserify-shim": {
+      "bootstrap": {
+          "exports": "bootstrap",
+          "depends": [
+              "jquery:jQuery"
+          ]
+      }
+  },
   "devDependencies": {
     "browser-sync": "~0.8.2",
     "browserify": "~3.36.0",

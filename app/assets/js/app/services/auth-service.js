@@ -1,5 +1,8 @@
 'use strict';
 
+var $ = require('jquery');
+require('bootstrap');
+
 module.exports = function ($rootScope, $window, userService) {
     return {
         permissions: [],
@@ -49,10 +52,13 @@ module.exports = function ($rootScope, $window, userService) {
                     _self.getUserInfo();
 
                     if (refreshPage) {
-                        $window.preventRedirect == undefined;
                         $window.location.reload();
                     }
                 } else {
+                    $('.modal-auth').modal();
+                    //$('.modal-auth').on('hidden.bs.modal', function (e) {
+                    //    _self.login(true);
+                    //});
                     console.log('User cancelled login or did not fully authorize.');
                 }
             }, {scope: _self.permissions.join(",")});
