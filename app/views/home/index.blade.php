@@ -21,7 +21,7 @@
 
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="" ng-click="invite()">Animi</a> aperiam assumenda aut dolor dolores ducimus, eos facilis id in iste necessitatibus neque nesciunt non odit pariatur quia quibusdam ratione, voluptatum.</p>
 
-        <p><fb-invite label="Freunde einladen"></fb-invite></p>
+        <p><fb-invite label="Freunde einladen" message="Steig ein und fahr mit!"></fb-invite></p>
     </div>
 
     <div ng-show="!user.id">

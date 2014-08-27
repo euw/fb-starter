@@ -4,19 +4,16 @@ module.exports = function($rootScope, $http) {
 
     return {
         saveToDatabase: function () {
-            var _self = this;
-
             var data = $rootScope.user;
 
             $http.post('/users', data).
                 success(function (data, status, headers, config) {
                     //console.log("success");
-                    console.log("success");
-                    console.log(data);
+                    //console.log(data);
                 }).
                 error(function (data, status, headers, config) {
-                    console.log("error");
-                    console.log(data);
+                    //console.log("error");
+                    //console.log(data);
                 });
 
         }

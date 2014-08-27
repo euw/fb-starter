@@ -28,8 +28,8 @@ module.exports = function($scope, authService, invitationService) {
         authService.logout();
     };
 
-    $scope.invite = function() {
-        invitationService.invite();
+    $scope.invite = function(message) {
+        invitationService.invite(message);
     };
 
     $scope.promptForPermission = function (permission) {
@@ -45,7 +45,8 @@ module.exports = function($rootScope, invitationService) {
     return {
         restrict: 'EA',
         scope: {
-            label: '@'
+            label: '@',
+            message: '@'
         },
         template: '<button class="btn btn-primary" ng-disabled="initialized">{{ label || "Invite Friends" }}</button>',
         link: function (scope, elem, attrs) {
@@ -55,7 +56,7 @@ module.exports = function($rootScope, invitationService) {
             });
 
             elem.bind('click', function () {
-                invitationService.invite();
+                invitationService.invite(scope.message);
             });
 
         }
@@ -292,13 +293,12 @@ module.exports = function ($rootScope, $window, userService) {
 },{}],10:[function(require,module,exports){
 'use strict';
 
-module.exports = function ($rootScope, $window, $http, authService) {
+module.exports = function ($rootScope, $window, $http) {
     return {
-        invite: function () {
+        invite: function (message) {
             FB.ui({
                 method: 'apprequests',
-                message: 'YOUR_MESSAGE_HERE',
-                to: '100002399508987'
+                message: message || '+++ PLEASE SUPPLY A MESSAGE! +++'
             }, function (response) {
                 if (response && response.request && response.to) {
                     var user_ids = [];
@@ -315,7 +315,7 @@ module.exports = function ($rootScope, $window, $http, authService) {
                     $http.post('/invitations', data).
                         success(function (data, status, headers, config) {
                             //console.log("success");
-                            console.log(data);
+                            //console.log(data);
                         }).
                         error(function (data, status, headers, config) {
                             console.log("error");
@@ -336,19 +336,16 @@ module.exports = function($rootScope, $http) {
 
     return {
         saveToDatabase: function () {
-            var _self = this;
-
             var data = $rootScope.user;
 
             $http.post('/users', data).
                 success(function (data, status, headers, config) {
                     //console.log("success");
-                    console.log("success");
-                    console.log(data);
+                    //console.log(data);
                 }).
                 error(function (data, status, headers, config) {
-                    console.log("error");
-                    console.log(data);
+                    //console.log("error");
+                    //console.log(data);
                 });
 
         }

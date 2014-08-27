@@ -5,7 +5,8 @@ module.exports = function($rootScope, invitationService) {
     return {
         restrict: 'EA',
         scope: {
-            label: '@'
+            label: '@',
+            message: '@'
         },
         template: '<button class="btn btn-primary" ng-disabled="initialized">{{ label || "Invite Friends" }}</button>',
         link: function (scope, elem, attrs) {
@@ -15,7 +16,7 @@ module.exports = function($rootScope, invitationService) {
             });
 
             elem.bind('click', function () {
-                invitationService.invite();
+                invitationService.invite(scope.message);
             });
 
         }

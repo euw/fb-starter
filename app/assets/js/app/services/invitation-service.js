@@ -1,12 +1,11 @@
 'use strict';
 
-module.exports = function ($rootScope, $window, $http, authService) {
+module.exports = function ($rootScope, $window, $http) {
     return {
-        invite: function () {
+        invite: function (message) {
             FB.ui({
                 method: 'apprequests',
-                message: 'YOUR_MESSAGE_HERE',
-                to: '100002399508987'
+                message: message || '+++ PLEASE SUPPLY A MESSAGE! +++'
             }, function (response) {
                 if (response && response.request && response.to) {
                     var user_ids = [];
@@ -23,7 +22,7 @@ module.exports = function ($rootScope, $window, $http, authService) {
                     $http.post('/invitations', data).
                         success(function (data, status, headers, config) {
                             //console.log("success");
-                            console.log(data);
+                            //console.log(data);
                         }).
                         error(function (data, status, headers, config) {
                             console.log("error");

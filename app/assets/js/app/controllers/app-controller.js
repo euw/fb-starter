@@ -10,8 +10,8 @@ module.exports = function($scope, authService, invitationService) {
         authService.logout();
     };
 
-    $scope.invite = function() {
-        invitationService.invite();
+    $scope.invite = function(message) {
+        invitationService.invite(message);
     };
 
     $scope.promptForPermission = function (permission) {
