@@ -308,10 +308,8 @@ module.exports = function ($rootScope, $window, $http, authService) {
                     });
 
                     var data = {
-                        uid: $rootScope.user.id,
                         to: user_ids,
-                        request_id: response.request,
-                        pageId: $window.pageId
+                        request_id: response.request
                     };
 
                     $http.post('/invitations', data).

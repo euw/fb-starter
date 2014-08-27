@@ -14,12 +14,15 @@ class UsersController extends BaseController {
 
     public function store()
     {
-        // if the user exists, return it
-        $user = $this->user->getFirstBy('fb_id', Input::get('id'));
+        $uid = $this->facebook->getUser();
 
-        if ( ! $user) {
-            $user = $this->user->create(array_merge(Input::all(), [
-                'fb_id' => Input::get('id')
+        $user = $this->user->getFirstBy('fb_id', $uid);
+
+        if (!$user) {
+            $userInfo = $this->facebook->api('/' . $uid);
+
+            $user = $this->user->create(array_merge($userInfo, [
+                'fb_id' => $uid
             ]));
         }
 
