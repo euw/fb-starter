@@ -51,28 +51,19 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 });
 
-App::error(function (Euw\FacebookApp\Exceptions\UserHasDeniedAuthenticationException $exception, $code) {
-    JavaScript::put([
-        'appId'       => Config::get('facebook-app::appId'),
-        'channelUrl'  => Config::get('facebook-app::channelUrl'),
-        'permissions' => Config::get('facebook-app::scope')
-    ]);
-
-    return View::make('errors/authDenied');
+App::error(function (Euw\FacebookApp\Exceptions\UserHasDeniedAuthenticationException $exception, $code)
+{
+    return App::make('ErrorsController')->callAction('authDenied', array($code));
 });
 
-App::error(function (Euw\MultiTenancy\Exceptions\TenantNotFoundException $exception, $code) {
-    JavaScript::put([
-        'appId'       => Config::get('facebook-app::appId'),
-        'channelUrl'  => Config::get('facebook-app::channelUrl'),
-        'permissions' => Config::get('facebook-app::scope')
-    ]);
-
-    return View::make('errors.tenantNotFound');
+App::error(function (Euw\MultiTenancy\Exceptions\TenantNotFoundException $exception, $code)
+{
+    return App::make('ErrorsController')->callAction('tenantNotFound', array($code));
 });
 
-App::error(function (\Euw\FacebookApp\Exceptions\GenericAppException $exception, $code) {
-    dd($exception->getMessage());
+App::error(function (\Euw\FacebookApp\Exceptions\GenericAppException $exception, $code)
+{
+    return App::make('ErrorsController')->callAction('genericApp', array($code));
 });
 
 /*

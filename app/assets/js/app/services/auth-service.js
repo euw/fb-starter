@@ -32,7 +32,7 @@ module.exports = function ($rootScope, $window, userService) {
 
             FB.api('/me/likes', function (response) {
                 $rootScope.$apply(function () {
-                    _self.user.likes = response;
+                    $rootScope.user.likes = response;
                 });
             });
         },
