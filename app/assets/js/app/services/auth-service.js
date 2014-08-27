@@ -49,6 +49,7 @@ module.exports = function ($rootScope, $window, userService) {
                     _self.getUserInfo();
 
                     if (refreshPage) {
+                        $window.preventRedirect == undefined;
                         $window.location.reload();
                     }
                 } else {

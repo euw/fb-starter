@@ -21,9 +21,12 @@ module.exports = function($rootScope, $window, authService) {
     }
 
     if (NotInFacebookFrame() || ReferrerIsFacebookApp()) {
-        var md = new MobileDetect($window.navigator.userAgent);
-        if (!md.mobile()) {
-            //top.location.href = 'https://www.facebook.com/' + $window.pageId + '/?sk=app_' + $window.appId;
+        if ( ! $window.preventRedirect) {
+            var md = new MobileDetect($window.navigator.userAgent);
+
+            if (!md.mobile()) {
+                top.location.href = 'https://www.facebook.com/' + $window.pageId + '/?sk=app_' + $window.appId;
+            }
         }
     }
 

@@ -13,6 +13,10 @@ class ErrorsController extends Controller {
 
     public function authDenied($code = null)
     {
+        JavaScript::put([
+            'preventRedirect' => true
+        ]);
+
         return View::make('errors.authDenied');
     }
 
