@@ -18,6 +18,7 @@ class ErrorsController extends Controller {
 
     public function tenantIsNotActive($code = null)
     {
+//        return Redirect::to(Request::secure() ? 'https://' : 'http://' . 'www.' . Config::get('app.domain'));
         return View::make('errors.tenantIsNotActive');
     }
 
