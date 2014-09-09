@@ -19,7 +19,7 @@ module.exports = function ($rootScope, $window, $http) {
                         request_id: response.request
                     };
 
-                    $http.post('/invitations', data).
+                    $http.post('invitations', data).
                         success(function (data, status, headers, config) {
                             //console.log("success");
                             //console.log(data);
