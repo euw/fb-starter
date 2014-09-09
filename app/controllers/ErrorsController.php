@@ -16,6 +16,11 @@ class ErrorsController extends Controller {
         return View::make('errors.authDenied');
     }
 
+    public function tenantIsNotActive($code = null)
+    {
+        return View::make('errors.tenantIsNotActive');
+    }
+
     public function tenantNotFound($code = null)
     {
         return View::make('errors.tenantNotFound');

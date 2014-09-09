@@ -56,6 +56,10 @@ App::error(function (Euw\FacebookApp\Exceptions\UserHasDeniedAuthenticationExcep
     return App::make('ErrorsController')->callAction('authDenied', array($code));
 });
 
+App::error(function (Euw\MultiTenancy\Exceptions\TenantIsNotActiveException $exception, $code) {
+    return App::make('ErrorsController')->callAction('tenantIsNotActive', array($code));
+});
+
 App::error(function (Euw\MultiTenancy\Exceptions\TenantNotFoundException $exception, $code)
 {
     return App::make('ErrorsController')->callAction('tenantNotFound', array($code));
